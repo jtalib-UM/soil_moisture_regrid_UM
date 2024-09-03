@@ -8,7 +8,7 @@ To regrid soil moisture, four scripts are required:
 * generate_weights_landsea_gridding.py - A python script which bilinearly interpolates soil moisture taking into consideration the treatment of water bodies by the UM.
 * stress_to_SMC.py - A python script which converts soil moisture stress back into soil moisture content. This final script outputs the regridded soil moisture which can then be used to produce appropriate ancillary files.
 
-Additionally, you will need to download ancillary tools. These can either be downloaded from here (under bin directory) or extracted straight from Met Office code repository:
+Additionally, you will need to download ancillary tools. These can either be downloaded from here (```bin```) or extracted straight from Met Office code repository:
 
 ```bash
 svn checkout --username <username> https://code.metoffice.gov.uk/svn/ancil/ants/tags/0.19.0/bin/
