@@ -18,6 +18,7 @@ Replace <username> with your Met Office user account name, and enter your passwo
 
 # Citation
 If this code supports your research please cite:
+
 *Talib, J., Taylor, C.M., Klein, C., Warner, J., Munday, C., Fowell, S. and Charlton-Perez, C., In Prep. Modelling the influence of soil moisture on the Turkana jet. Quarterly Journal of the Royal Meteorological Society.*
 
 
