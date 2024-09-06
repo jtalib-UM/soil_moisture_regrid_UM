@@ -31,7 +31,7 @@ srun --distribution=block:block --hint=nomultithread python /work/n02/n02/jostal
 # Part (2) #############################################################################################################################
 # run python script which performs linear interpolation with resolved coastal adjustment
 # Define files.
-land_mask_4p4km='/work/n02/n02/jostal/prescribed_SM_files/initial_MO_SMC_v2/qrparm.mask' # land mask at regional model resolution already created during production of ancillaries.
+land_mask='/work/n02/n02/jostal/prescribed_SM_files/initial_MO_SMC_v2/qrparm.mask' # land mask at regional model resolution already created during production of ancillaries.
 SM_stress_regrid='/work/n02/n02/jostal/prescribed_SM_files/initial_MO_SMC_v2/soil_moisture_regrid_UM/SMstress_regrid_out.nc' # this file will be SM stress regridded to the finer resolution.
 # additional files for coastal adjustment performed by ANTS (for grid points fully surronded by ocean [small islands/vary rare].)
 ANTS_IN='SMstress_regrid_out.nc'
@@ -45,7 +45,7 @@ LSM_MASK='qrparm.mask' # 4.4km land mask stored in ANTS_HOME
 SM_STRESS_REGRID='/work/n02/n02/jostal/prescribed_SM_files/initial_MO_SMC_v2/soil_moisture_regrid_UM/'$ANTS_OUT
 
 # run python script
-srun --distribution=block:block --hint=nomultithread python /work/n02/n02/jostal/prescribed_SM_files/initial_MO_SMC_v2/soil_moisture_regrid_UM/generate_weights_landsea_gridding.py $SM_stress_outfile $land_mask_4p4km $SM_stress_regrid
+srun --distribution=block:block --hint=nomultithread python /work/n02/n02/jostal/prescribed_SM_files/initial_MO_SMC_v2/soil_moisture_regrid_UM/generate_weights_landsea_gridding.py $SM_stress_outfile $land_mask $SM_stress_regrid
 
 # USING ANTS TO PERFORM SPIRAL CIRCLE METHOD
 singularity exec --home $ANTS_HOME $ANTS_CONTAINER \
