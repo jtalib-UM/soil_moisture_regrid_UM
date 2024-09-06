@@ -13,14 +13,14 @@ We proceed with the following steps to interpolate soil moisture:
 
 The interpolation of ''moisture stress'' instead of soil moisture ensures that plant transpiration remains consistent between the two horizontal grids. In the MetUM, moisture stress ($\beta$, dimensionless) is related to the instantaneous ($\theta$), critical ($\theta_c$) and wilting ($\theta_w$) soil moisture concentrations (m$`^3`$ m$`^{-3}`$):
 
-\[
+$$\[
 \beta =
 \begin{cases}
     1 & \text{for } \theta \geq \theta_c \\
     \frac{\theta - \theta_w}{\theta_c - \theta_w} & \text{for } \theta_w < \theta < \theta_c \\
     0 & \text{for } \theta \leq \theta_w
 \end{cases}
-\]
+\]$$
 
 where $\theta_c$ and $\theta_w$ are thresholds when evapotranspiration becomes soil moisture-limited or non-existent respectively. These soil properties are calculated through inputting sand, silt and clay soil fractions, sourced from version 1.2 of the Harmonized World Soil Database, into a set of pedotransfer functions that compute soil hydraulic conductivity.
 
