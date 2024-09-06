@@ -13,15 +13,18 @@ We proceed with the following steps to interpolate soil moisture:
 
 The interpolation of ''moisture stress'' instead of soil moisture ensures that plant transpiration remains consistent between the two horizontal grids. In the MetUM, moisture stress ($\beta$, dimensionless) is related to the instantaneous ($\theta$), critical ($\theta_c$) and wilting ($\theta_w$) soil moisture concentrations (m$`^3`$ m$`^{-3}`$):
 
-$$
+\[
+\beta =
+\begin{cases}
     1 & \text{for } \theta \geq \theta_c \\
     \frac{\theta - \theta_w}{\theta_c - \theta_w} & \text{for } \theta_w < \theta < \theta_c \\
     0 & \text{for } \theta \leq \theta_w
-$$
+\end{cases}
+\]
 
 where $\theta_c$ and $\theta_w$ are thresholds when evapotranspiration becomes soil moisture-limited or non-existent respectively. These soil properties are calculated through inputting sand, silt and clay soil fractions, sourced from version 1.2 of the Harmonized World Soil Database, into a set of pedotransfer functions that compute soil hydraulic conductivity.
 
-In the case of land points on the finer horizontal grid that are interpolated from a combination of land and ocean points, a 100\% weighting on the nearest land point is used \citep{UMDP_S11}. Albeit rare, for fine-resolution land points surrounded by coarse-resolution ocean grid points (e.g. small oceanic islands), the moisture stress value from the nearest land point is taken. Additionally, after converting moisture stress back to soil moisture, interpolated values may be inconsistent with soil parameters. To prevent disparities between soil parameters and initialised soil moisture, we ensure that soil moisture is at least 10\% of the wilting soil moisture concentration ($\theta_w$) and does not exceed saturation \citep{UMDP_S11}. All of the aforementioned steps are consistent with current UKMO practices. We also follow the same procedure to interpolate operational soil moisture before the 12th July 2017 to the current horizontal resolution, i.e. N768 to N1280. We found that it is non-trivial to interpolate soil moisture for high-resolution MetUM simulations. In light of the continued increase in high-resolution MetUM modelling amongst the research community, we have made python code which reconfigures UKMO operational soil moisture freely available at https://github.com/jtalib-UM/soil\textunderscore moisture\textunderscore regrid\textunderscore UM.
+In the case of land points on the fine horizontal grid that are interpolated from a combination of land and ocean points, a 100\% weighting on the nearest land point is used. Albeit rare, for fine-resolution land points surrounded by coarse-resolution ocean grid points (e.g. small oceanic islands), the moisture stress value from the nearest land point is taken. Additionally, after converting moisture stress back to soil moisture, interpolated values may be inconsistent with soil parameters. To prevent disparities between soil parameters and initialised soil moisture, we ensure that soil moisture is at least 10\% of the wilting soil moisture concentration ($\theta_w$) and does not exceed saturation. All of the aforementioned steps are consistent with current UKMO practices.
 
 # Needed scripts to regrid soil moisture
 To regrid soil moisture, four scripts are required: 
