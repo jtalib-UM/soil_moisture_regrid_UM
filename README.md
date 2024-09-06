@@ -7,11 +7,11 @@ When running regional UM simulations bounded by ERA5, it is inconsistent to init
 
 # Specific processes when regridding soil moisture.
 We proceed with the following steps to interpolate soil moisture:
-* Soil moisture is converted into a ``moisture stress'' factor \citep{best2011joint} using coarse-resolution soil properties.
+* Soil moisture is converted into a ''moisture stress'' factor using coarse-resolution soil properties.
 * Bilinear interpolation is used to statistically downscale moisture stress to the finer resolution grid.
 * Moisture stress is converted back to soil moisture using soil properties that have been interpolated to the high-resolution model grid.
 
-The interpolation of ``moisture stress'' instead of soil moisture ensures that plant transpiration remains consistent between the two horizontal grids. In the MetUM, moisture stress ($\beta$, dimensionless) is related to the instantaneous ($\theta$), critical ($\theta_c$) and wilting ($\theta_w$) soil moisture concentrations (m$^3$ m$^{-3}$):
+The interpolation of ''moisture stress'' instead of soil moisture ensures that plant transpiration remains consistent between the two horizontal grids. In the MetUM, moisture stress ($\beta$, dimensionless) is related to the instantaneous ($\theta$), critical ($\theta_c$) and wilting ($\theta_w$) soil moisture concentrations (m$^3$ m$^{-3}$):
 
 $
     \beta &= 
