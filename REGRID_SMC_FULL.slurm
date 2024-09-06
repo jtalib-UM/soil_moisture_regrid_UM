@@ -5,7 +5,7 @@
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=1
 
-#SBATCH --account=n02-NEX006247 # PUT IN YOUR OWN ARCHER ACCOUNT NUMBER
+#SBATCH --account= # PUT IN YOUR OWN ARCHER ACCOUNT NUMBER
 #SBATCH --partition=serial
 #SBATCH --qos=serial
 #SBATCH --mem=124G
