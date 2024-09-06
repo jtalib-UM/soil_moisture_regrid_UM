@@ -3,7 +3,7 @@ A collection of sbatch and python scripts for regridding soil moisture output fr
 
 Why are these scripts needed?
 
-When running regional UM simulations bounded by ERA5, it is inconsistent to initialise with ERA5 soil moisture. Currently, when outside the Met Office, it is non-trivial to initialise a model with UM fine-resolution soil moisture. Our solution has been to source soil moisture from the MetUM operational model, either through running a short low-res. simulation with UM driving data or by accessing UKMO operational files, and then regridding soil moisture ourselves. Our validation that we correctly regrid soil moisture has been comparing regridded soil moisture with initial soil moisture when performing a UKMO-driven simulation.
+When running regional UM simulations bounded by ERA5, it is inconsistent to initialise the surface with ERA5 soil moisture. Currently, when outside the Met Office, it is non-trivial to initialise a UM simulation with UM fine-resolution soil moisture. Our solution has been to source soil moisture from previous MetUM simulations, either through running a short low-res. simulation with UM driving data or by accessing UKMO operational files, and then regridding soil moisture ourselves. Our validation that we correctly regrid soil moisture has been through comparing regridded soil moisture with initial soil moisture when performing a UKMO-driven simulation.
 
 Please note, these scripts are to support other scientists running high-resolution MetUM simulations. Please don't hesitate to get in touch if you come across any errors. 
 
