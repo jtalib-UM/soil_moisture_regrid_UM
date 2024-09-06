@@ -9,9 +9,9 @@ Please note, these scripts are to support other scientists running high-resoluti
 
 # Specific processes when regridding soil moisture.
 We proceed with the following steps to interpolate soil moisture:
-* Soil moisture is converted into a ''moisture stress'' factor using coarse-resolution soil properties.
-* Bilinear interpolation is used to statistically downscale moisture stress to the finer resolution grid.
-* Moisture stress is converted back to soil moisture using soil properties that have been interpolated to the high-resolution model grid.
+* Soil moisture is converted into a ''moisture stress'' factor using coarse-resolution soil properties (SMC_to_stress.py).
+* Bilinear interpolation is used to statistically downscale moisture stress to the finer resolution grid (generate_weights_landsea_gridding.py and ancil_coast_adj.py).
+* Moisture stress is converted back to soil moisture using soil properties that have been interpolated to the high-resolution model grid (stress_to_SMC.py).
 
 The interpolation of ''moisture stress'' instead of soil moisture ensures that plant transpiration remains consistent between the two horizontal grids. In the MetUM, moisture stress ($\beta$, dimensionless) is related to the instantaneous ($\theta$), critical ($\theta_c$) and wilting ($\theta_w$) soil moisture concentrations (m$`^3`$ m$`^{-3}`$):
 
@@ -65,4 +65,6 @@ If this code supports your research please cite *Talib, J., Taylor, C.M., Klein,
 # Contact
 These scripts will not be updated regularly. If you have any questions, please feel free to contact Joshua Talib at jostal@ceh.ac.uk.
 
+# Acknowledgements
+This work was supported by the Natural Environment Research Council as part of the NC-international programme (NE/X006247/1) delivering National Capability. Additionally, we would like to thank Dr. Fran Morris (University of Oxford) and Dr. Helen Burns (Centre for Environmental Modelling And Computation, University of Leeds) for their discussions whilst developing model set-up.
 
